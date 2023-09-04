@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
+    "test:e2e:run": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e \"",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e \"",
+    "test:component": "is-ci \"test:component:run\" \"test:component:dev\"",
+    "test:component:run": "start-server-and-test dev http://localhost:3000 \"cypress run --component\"",
+    "test:component:dev": "start-server-and-test dev http://localhost:3000 \"cypress open --component\""
   },
   "dependencies": {
     "@types/node": "20.5.9",
@@ -24,6 +29,8 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "cypress": "^13.1.0"
+    "@testing-library/cypress": "^9.0.0",
+    "cypress": "^12.0.0",
+    "start-server-and-test": "^2.0.0"
   }
 }

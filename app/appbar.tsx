@@ -1,5 +1,6 @@
 import { faCartPlus, faCircleStop } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CartItem } from "./modules";
 
 const Appbar = () => {
   return (
@@ -10,9 +11,8 @@ const Appbar = () => {
           <FontAwesomeIcon icon={faCircleStop} />
         </button>
         <button className="btn btn-primary btn-sm">{"Register"}</button>
-        <button className="btn btn-primary btn-sm">
-          <FontAwesomeIcon icon={faCartPlus} />
-        </button>
+
+        <CartItem />
       </section>
     </div>
   );

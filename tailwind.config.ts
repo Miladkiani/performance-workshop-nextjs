@@ -16,6 +16,9 @@ const config: Config = {
       zIndex: {
         appbar: "2",
       },
+      gridTemplateColumns: {
+        "fill-220": "repeat(auto-fill, minmax(220px,1fr))",
+      },
     },
   },
   plugins: [require("daisyui")],

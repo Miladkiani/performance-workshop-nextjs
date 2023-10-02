@@ -9,14 +9,16 @@ export default async function Home() {
       headers: {
         "content-type": "application/json",
       },
-      cache: "no-cache",
+      next: {
+        revalidate: 10,
+      },
     }
   );
 
   const data: IProduct[] = await res.json();
 
   return (
-    <section className="grid grid-cols-4 gap-4 p-4">
+    <section className="grid grid-cols-fill-220 gap-4 p-4">
       {data.map((product) => {
         return <ProductCard key={product.name} {...product} />;
       })}

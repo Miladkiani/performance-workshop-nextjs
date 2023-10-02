@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { FunctionComponent } from "react";
+import AddToCart from "./AddToCart";
 
 export interface IProduct {
   name: string;
@@ -15,7 +16,7 @@ export const ProductCard: FunctionComponent<IProduct> = ({
   desc,
 }) => {
   return (
-    <article className="card bg-base-100 shadow-xl h-56 flex flex-col gap-2">
+    <article className="card bg-base-100 shadow-xl h-56 flex flex-col overflow-hidden">
       <Image
         alt={`product-${name}`}
         src={img}
@@ -23,14 +24,18 @@ export const ProductCard: FunctionComponent<IProduct> = ({
         height={200}
         className="object-cover h-1/2 w-full shrink-0"
       />
-      <div className="px-3 flex flex-col gap-2">
+      <div className="flex flex-col p-3 gap-2 ">
         <div className="flex-col gap-1 flex-1">
           <p className="font-bold text-base line-clamp-1 ">{name}</p>
-          <p className="text-sm line-clamp-2">{desc}</p>
+          <p className="text-xs line-clamp-2">{desc}</p>
         </div>
-        <p className="badge badge-secondary shrink-0 badge-outline self-end">
-          {adjective}
-        </p>
+
+        <div className="flex justify-between self-end w-full">
+          <AddToCart />
+          <p className="badge badge-secondary shrink-0 badge-outline self-end">
+            {adjective}
+          </p>
+        </div>
       </div>
     </article>
   );
